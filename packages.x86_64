@@ -75,3 +75,7 @@ xorg-xinit
 xfce4-goodies
 htop
 adapta-gtk-theme
+gcc
+g++
+go
+gnome-system-monitor
