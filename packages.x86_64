@@ -79,3 +79,5 @@ gcc
 g++
 go
 gnome-system-monitor
+astyle
+gdb
