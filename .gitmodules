@@ -1,0 +1,3 @@
+[submodule "repos/pbinfo"]
+	path = repos/pbinfo
+	url = git@github.com:Tedyst/pbinfo
