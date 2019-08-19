@@ -4,7 +4,7 @@ xfconf-query -c xsettings -p /Net/ThemeName -s "Adapta-Nokto"
 xfconf-query -c xfwm4 -p /general/workspace_count -s 1
 
 cp /usr/share/applications/visual-studio-code.desktop /home/tedy/Desktop
-chmod +x /usr/share/applications/visual-studio-code.desktop
+chmod +x /home/tedy/Desktop/visual-studio-code.desktop
 
 cp /usr/share/applications/firefox-esr.desktop /home/tedy/Desktop
-chmod +x /usr/share/applications/firefox-esr.desktop
+chmod +x /home/tedy/Desktop/firefox-esr.desktop
