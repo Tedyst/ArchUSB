@@ -24,3 +24,5 @@ systemctl set-default graphical.target
 
 
 useradd -p Z11BkDzGwWyW. tedy
+chown tedy -R /home/tedy/
+xfconf-query --channel xfce4-desktop --property /backdrop/screen0/monitor0/image-path --set /home/tedy/bg.png
