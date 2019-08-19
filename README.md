@@ -8,3 +8,5 @@ I am using this to build my USB live stick. You could try and build this, but I 
 sudo docker build . -t archusb
 docker run --rm --name archusb --privileged -it -v $(pwd)/out:/build/out --network=host archusb
 ```
+
+The output .iso is in the folder `out/`
