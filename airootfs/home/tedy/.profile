@@ -3,3 +3,4 @@ xfconf-query --channel xfce4-desktop --property /backdrop/screen0/monitor0/image
 xfconf-query -c xsettings -p /Net/ThemeName -s "Adapta-Nokto"
 xfconf-query -c xfwm4 -p /general/workspace_count -s 1
 cp /usr/share/applications/visual-studio-code.desktop /home/tedy/Desktop
+chmod +x /usr/share/applications/visual-studio-code.desktop
