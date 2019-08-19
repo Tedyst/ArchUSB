@@ -25,6 +25,8 @@ systemctl set-default graphical.target
 # Password is "password"
 useradd -p cojkMmMifD5s6 tedy
 chown tedy -R /home/tedy/
+
+# Installing vscode extensions
 sudo -u tedy code --install-extension aaron-bond.better-comments
 sudo -u tedy code --install-extension chiehyu.vscode-astyle
 sudo -u tedy code --install-extension coenraads.bracket-pair-colorizer
