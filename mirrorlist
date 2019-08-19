@@ -1,0 +1,7 @@
+Server = http://archlinux.mirrors.linux.ro/$repo/os/$arch
+#Server = http://mirrors.m247.ro/archlinux/$repo/os/$arch
+#Server = http://mirrors.nav.ro/archlinux/$repo/os/$arch
+#Server = http://mirrors.nxthost.com/archlinux/$repo/os/$arch
+#Server = https://mirrors.nxthost.com/archlinux/$repo/os/$arch
+#Server = http://mirrors.pidginhost.com/arch/$repo/os/$arch
+#Server = https://mirrors.pidginhost.com/arch/$repo/os/$arch
