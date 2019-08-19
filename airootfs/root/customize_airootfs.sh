@@ -25,5 +25,3 @@ systemctl set-default graphical.target
 # Password is "password"
 useradd -p cojkMmMifD5s6 tedy
 chown tedy -R /home/tedy/
-xfconf-query --channel xfce4-desktop --property /backdrop/screen0/monitor0/image-path --set /home/tedy/bg.png
-xfconf-query -c xsettings -p /Net/ThemeName -s "Adapta-LightBlue-Nokto"
