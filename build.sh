@@ -300,7 +300,7 @@ Server = file://${offline_mirror_path}/os/x86_64/
 EOF
 }
 
-install_aur() {
+make_aur() {
     mkarchiso ${verbose} -w "${work_dir}/x86_64" -C "${work_dir}/pacman.conf" -D "${install_dir}" -p "$(grep -h -v ^# ${script_path}/packages.aur)" install
 }
 
@@ -322,7 +322,7 @@ make_iso() {
     mkarchiso ${verbose} -w "${work_dir}" -D "${install_dir}" -L "${iso_label}" -P "${iso_publisher}" -A "${iso_application}" -o "${out_dir}" iso "${iso_name}-${iso_version}-x86_64.iso"
 }
 
-run_commands() {
+make_commands() {
     while read p; do
         mkarchiso ${verbose} -w "${work_dir}/x86_64" -C "${work_dir}/pacman.conf" -D "${install_dir}" -r "$p" run
     done <commands.txt
@@ -363,9 +363,9 @@ run_once make_setup_mkinitcpio
 run_once make_aur_packages
 run_once make_offline_mirror
 run_once patch_in_local_mirror
-run_once install_aur
+run_once make_aur
 run_once finalize_offline
-run_once run_commands
+run_once make_commands
 
 run_once make_customize_airootfs
 run_once make_boot
