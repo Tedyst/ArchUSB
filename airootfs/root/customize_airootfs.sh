@@ -25,3 +25,10 @@ systemctl set-default graphical.target
 # Password is "password"
 useradd -p cojkMmMifD5s6 tedy
 chown tedy -R /home/tedy/
+sudo -u tedy code --install-extension aaron-bond.better-comments
+sudo -u tedy code --install-extension chiehyu.vscode-astyle
+sudo -u tedy code --install-extension coenraads.bracket-pair-colorizer
+sudo -u tedy code --install-extension pkief.material-icon-theme
+sudo -u tedy code --install-extension zhuangtongfa.material-theme
+sudo -u tedy code --install-extension alefragnani.project-manager
+sudo -u tedy code --install-extension ms-vscode.cpptools

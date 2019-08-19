@@ -322,12 +322,6 @@ make_iso() {
     mkarchiso ${verbose} -w "${work_dir}" -D "${install_dir}" -L "${iso_label}" -P "${iso_publisher}" -A "${iso_application}" -o "${out_dir}" iso "${iso_name}-${iso_version}-x86_64.iso"
 }
 
-make_commands() {
-    while read p; do
-        mkarchiso ${verbose} -w "${work_dir}/x86_64" -C "${work_dir}/pacman.conf" -D "${install_dir}" -r "$p" run
-    done <commands.txt
-}
-
 if [[ ${EUID} -ne 0 ]]; then
     echo "This script must be run as root."
     _usage 1
@@ -365,7 +359,6 @@ run_once make_offline_mirror
 run_once patch_in_local_mirror
 run_once make_aur
 run_once finalize_offline
-run_once make_commands
 
 run_once make_customize_airootfs
 run_once make_boot
