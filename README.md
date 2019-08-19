@@ -1,8 +1,8 @@
-## Arch USB Live builder
+# Arch USB Live builder
 
 I am using this to build my USB live stick. You could try and build this, but I won't guarantee anything.
 
-# Building
+## Building
 
 ```sh
 sudo docker build .  -t archusb
