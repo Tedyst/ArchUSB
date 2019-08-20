@@ -105,3 +105,5 @@ bash-completion
 git
 llvm
 ntfs-3g
+networkmanager
+wicd-gtk
