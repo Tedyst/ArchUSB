@@ -101,6 +101,7 @@ pulseaudio
 vlc
 libreoffice-fresh
 gparted
-papirus-icon-theme
 bash-completion
 git
+llvm
+ntfs-3g

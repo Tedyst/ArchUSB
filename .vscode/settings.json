@@ -2,5 +2,8 @@
     "git.ignoreLimitWarning": true,
     "files.watcherExclude": {
         "**/work/**": true
-    }
+    },
+    "todo-tree.excludeGlobs": [
+        "**/work/**"
+    ]
 }

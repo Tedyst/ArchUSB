@@ -40,4 +40,3 @@ sudo -u tedy code --install-extension oderwat.indent-rainbow
 
 # Set default browser
 sudo -u tedy firefox-esr --silent --headless --setDefaultBrowser
-sudo -u tedy xdg-settings set default-web-browser firefox-esr.desktop
