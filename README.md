@@ -10,3 +10,8 @@ docker run --rm --name archusb --privileged -it -v $(pwd)/out:/build/out --netwo
 ```
 
 The output .iso is in the folder `out/`
+After building, if you want to put this to an USB run:
+
+1. Copy the files from the .iso file to an empty drive formatted with FAT32.
+2. Copy the arch/boot/ folder to boot/
+3. Run `syslinux --directory boot/syslinux --install /dev/sdc1` in the drive
