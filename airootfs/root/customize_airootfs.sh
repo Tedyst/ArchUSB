@@ -34,6 +34,8 @@ sudo -u tedy code --install-extension pkief.material-icon-theme
 sudo -u tedy code --install-extension zhuangtongfa.material-theme
 sudo -u tedy code --install-extension alefragnani.project-manager
 sudo -u tedy code --install-extension ms-vscode.cpptools
+sudo -u tedy code --install-extension ms-vscode.atom-keybindings
+sudo -u tedy code --install-extension oderwat.indent-rainbow
 
 # Set default browser
 sudo -u tedy firefox-esr --silent --headless --setDefaultBrowser
