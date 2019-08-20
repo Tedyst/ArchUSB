@@ -222,8 +222,6 @@ make_prepare() {
 
 # Build ISO
 build_aur () {
-    # TODO: Create a temp dir that isn't just the package name,
-    #       just in case there's a freak accidental name collision
     old_dir=`pwd`
     package=$1
 
@@ -234,8 +232,6 @@ build_aur () {
     tar xvzf "${package}.tar.gz"
 
     # Prep with a build-user (removed at the end):
-    # TODO: Check if already exists, if so, randomize name/don't remove at the end.
-    # TODO: Don't give permission to wheel, give it only to this user (easy, but needs debugging first)
     EXISTS=1
     if [ ! $(id -u builder) ]; then
         EXISTS=0
