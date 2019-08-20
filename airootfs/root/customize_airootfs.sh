@@ -18,6 +18,7 @@ sed -i 's/#\(Storage=\)auto/\1volatile/' /etc/systemd/journald.conf
 sed -i 's/#\(HandleSuspendKey=\)suspend/\1poweroff/' /etc/systemd/logind.conf
 sed -i 's/#\(HandleHibernateKey=\)hibernate/\1poweroff/' /etc/systemd/logind.conf
 sed -i 's/#\(HandleLidSwitch=\)suspend/\1poweroff/' /etc/systemd/logind.conf
+sed -i 's/#\(HandlePowerKey=\)poweroff/\1poweroff/' /etc/systemd/logind.conf
 
 systemctl enable pacman-init.service choose-mirror.service
 systemctl set-default graphical.target
