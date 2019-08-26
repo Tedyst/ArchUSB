@@ -34,9 +34,14 @@ sudo -u tedy code --install-extension coenraads.bracket-pair-colorizer
 sudo -u tedy code --install-extension pkief.material-icon-theme
 sudo -u tedy code --install-extension zhuangtongfa.material-theme
 sudo -u tedy code --install-extension alefragnani.project-manager
-sudo -u tedy code --install-extension ms-vscode.cpptools
 sudo -u tedy code --install-extension ms-vscode.atom-keybindings
 sudo -u tedy code --install-extension oderwat.indent-rainbow
+
+LATEST_CPP=$(curl --silent "https://api.github.com/repos/Microsoft/vscode-cpptools/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+CPP_LINK="https://github.com/microsoft/vscode-cpptools/releases/download/$LATEST_CPP/cpptools-linux.vsix"
+wget -O /home/tedy/cpptools-linux.vsix $CPP_LINK
+sudo -u tedy code --install-extension /home/tedy/cpptools-linux.vsix
+rm -f /home/tedy/cpptools-linux.vsix
 
 # Set default browser
 sudo -u tedy firefox-esr --silent --headless --setDefaultBrowser
