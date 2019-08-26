@@ -1,3 +1,6 @@
+#!/bin/bash
+PARTITIONID=2
+
 # Depends where it's run
 xfconf-query --channel xfce4-desktop --list | grep last-image | while read path; do
     xfconf-query --channel xfce4-desktop --property $path --set /home/tedy/bg.png
@@ -15,3 +18,7 @@ chmod +x /home/tedy/Desktop/firefox-esr.desktop
 
 # Set the default browser to firefox
 xdg-settings set default-web-browser firefox-esr.desktop
+
+# Automount main partition from usb
+PARTITION="$(cat /proc/mounts | grep /run/archiso/bootmnt | cut -b 1-8)$PARTITIONID"
+sudo mount $PARTITION ~/Desktop/Stick
