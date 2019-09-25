@@ -45,3 +45,6 @@ rm -f /home/tedy/cpptools-linux.vsix
 
 # Set default browser
 sudo -u tedy firefox-esr --silent --headless --setDefaultBrowser
+
+sudo systemctl enable clamav-daemon.service
+sudo freshclam
