@@ -5,5 +5,8 @@
     },
     "todo-tree.excludeGlobs": [
         "**/work/**"
+    ],
+    "todo-tree.filtering.excludeGlobs": [
+        "**/work/**"
     ]
 }

@@ -22,6 +22,7 @@ sed -i 's/#\(HandlePowerKey=\)poweroff/\1poweroff/' /etc/systemd/logind.conf
 
 systemctl enable pacman-init.service choose-mirror.service wicd.service
 systemctl set-default graphical.target
+sytemctl disable Network-wait-online.service
 
 # Password is "password"
 useradd -p cojkMmMifD5s6 tedy
@@ -43,8 +44,8 @@ wget -O /home/tedy/cpptools-linux.vsix $CPP_LINK
 sudo -u tedy code --install-extension /home/tedy/cpptools-linux.vsix
 rm -f /home/tedy/cpptools-linux.vsix
 
-# Set default browser
-sudo -u tedy firefox-esr --silent --headless --setDefaultBrowser
+# Set default browser is bugged right now, crashes w/ Segfault
+# sudo -u tedy firefox-esr --silent --headless --setDefaultBrowser
 
 sudo systemctl enable clamav-daemon.service
 sudo freshclam
