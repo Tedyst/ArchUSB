@@ -105,4 +105,12 @@ git
 llvm
 ntfs-3g
 networkmanager
-wicd-gtk
+linux-firmware
+debootstrap
+qemu-arch-extra
+qemu
+libvirt
+virt-manager
+youtube-dl
+dbeaver
+hub

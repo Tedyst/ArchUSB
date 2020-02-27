@@ -5,7 +5,7 @@ I am using this to build my USB live stick. You could try and build this, but I 
 ## Building
 
 ```sh
-sudo docker build . -t archusb
+docker build . -t archusb
 docker run --rm --name archusb --privileged -it -v $(pwd)/out:/build/out --network=host archusb
 ```
 
