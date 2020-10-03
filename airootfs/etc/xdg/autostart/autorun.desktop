@@ -1,7 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Name=x11vnc
-Comment=Init desktop interface
-Exec=/home/tedy/autostart.sh
-Terminal=true
-Type=Application
