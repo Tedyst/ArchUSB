@@ -30,7 +30,7 @@ copyskel() {
   sudo sed -i "s/multi-user.target/graphical.target/g" ./workingdir/airootfs/root/customize_airootfs.sh
 }
 createlsbrelease() {
-  echo "lsb-release" | sudo tee --append ./workingdir/packages.x86_64 > /dev/null
+  # echo "lsb-release" | sudo tee --append ./workingdir/packages.x86_64 > /dev/null
   echo "DISTRIB_ID=Tedy" | sudo tee ./workingdir/airootfs/etc/lsb-release > /dev/null
   echo 'DISTRIB_DESCRIPTION="Arch ISO"' | sudo tee --append ./workingdir/airootfs/etc/lsb-release > /dev/null
   echo "DISTRIB_RELEASE=$distroversion" | sudo tee --append ./workingdir/airootfs/etc/lsb-release > /dev/null
@@ -51,7 +51,7 @@ compileaurpkgs() {
     for d in */ ; do
       cd "$d"
     done
-    # makepkg -s
+    makepkg -s
     cp *.pkg.ta* ../../x86_64
     cd $buildingpath
     for d in */ ; do
@@ -61,7 +61,7 @@ compileaurpkgs() {
   done < "aurpackages"
   rm -rf customrepo/custompkgs
   unset repopath buildingpath
-  cat aurpackages | sudo tee workingdir/packages.x86_64
+  cat aurpackages | sudo tee -a workingdir/packages.x86_64
 }
 setuprepo() {
   cd customrepo/x86_64
