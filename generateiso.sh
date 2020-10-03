@@ -3,8 +3,8 @@ if [ "$EUID" = 0 ]; then
   echo "Please don't run this script as root!"
   exit
 fi
-distroversion=""
-distrocodename=""
+distroversion="1.0.0"
+distrocodename="Test"
 echo "Welcome to the generation script for 'Tedy'"
 echo "==========="
 if [ "$1" != "" ]; then
@@ -18,10 +18,10 @@ else
 fi
 createdir() {
   sudo mkdir workingdir
-  sudo cp -r /usr/share/archiso/configs/releng/* ./workingdir
+  sudo cp -r /usr/share/archiso/configs/baseline/* ./workingdir
 }
 copypackages() {
-  sudo cp ./packages ./workingdir/packages.both
+  sudo cp ./packages ./workingdir/packages.x86_64
 }
 copyskel() {
   sudo mkdir ./workingdir/airootfs/etc/skel
@@ -30,7 +30,7 @@ copyskel() {
   sudo sed -i "s/multi-user.target/graphical.target/g" ./workingdir/airootfs/root/customize_airootfs.sh
 }
 createlsbrelease() {
-  echo "lsb-release" | sudo tee --append ./workingdir/packages.both > /dev/null
+  echo "lsb-release" | sudo tee --append ./workingdir/packages.x86_64 > /dev/null
   echo "DISTRIB_ID=Tedy" | sudo tee ./workingdir/airootfs/etc/lsb-release > /dev/null
   echo 'DISTRIB_DESCRIPTION="Arch ISO"' | sudo tee --append ./workingdir/airootfs/etc/lsb-release > /dev/null
   echo "DISTRIB_RELEASE=$distroversion" | sudo tee --append ./workingdir/airootfs/etc/lsb-release > /dev/null
@@ -89,18 +89,21 @@ compilecalamares() {
   echo "archmaker-calamares" | sudo tee --append ./workingdir/packages.both > /dev/null
 }
 compileaurpkgs() {
+  mkdir customrepo
+  mkdir customrepo/x86_64
+  mkdir customrepo/i686
   mkdir customrepo/custompkgs
   repopath="$(readlink -f .)"
   buildingpath="$(readlink -f ./customrepo/custompkgs)"
   while IFS='' read -r currentpkg || [[ -n "$currentpkg" ]]; do
     cd customrepo/custompkgs
-    curl $currentpkg > ./currentpkg.tar.gz
+    curl https://aur.archlinux.org/cgit/aur.git/snapshot/$currentpkg.tar.gz > ./currentpkg.tar.gz
     tar xf currentpkg.tar.gz
     rm currentpkg.tar.gz
     for d in */ ; do
       cd "$d"
     done
-    makepkg -s
+    # makepkg -s
     cp *.pkg.ta* ../../x86_64
     cd $buildingpath
     for d in */ ; do
@@ -110,21 +113,23 @@ compileaurpkgs() {
   done < "aurpackages"
   rm -rf customrepo/custompkgs
   unset repopath buildingpath
+  cat aurpackages | sudo tee workingdir/packages.x86_64
 }
 setuprepo() {
   cd customrepo/x86_64
   echo "Adding packages to repository..."
   repo-add customrepo.db.tar.gz *.pkg.ta*
   cd ../..
+  sudo sed -i 's/Architecture = auto/Architecture = x86_64/g' ./workingdir/pacman.conf
   echo "[customrepo]" | sudo tee --append ./workingdir/pacman.conf > /dev/null
   echo "SigLevel = Never" | sudo tee --append ./workingdir/pacman.conf > /dev/null
   echo "Server = file://$(pwd)/customrepo/$(echo '$arch')" | sudo tee --append ./workingdir/pacman.conf > /dev/null
-  sudo pacman -Syy
-  cat /etc/pacman.conf > ./pacman.backup
-  echo "[customrepo]" | sudo tee --append /etc/pacman.conf > /dev/null
-  echo "SigLevel = Never" | sudo tee --append /etc/pacman.conf > /dev/null
-  echo "Server = file://$(pwd)/customrepo/$(echo '$arch')" | sudo tee --append /etc/pacman.conf > /dev/null
-  sudo pacman -Syy
+  # sudo pacman -Syy
+  # cat /etc/pacman.conf > ./pacman.backup
+  # echo "[customrepo]" | sudo tee --append /etc/pacman.conf > /dev/null
+  # echo "SigLevel = Never" | sudo tee --append /etc/pacman.conf > /dev/null
+  # echo "Server = file://$(pwd)/customrepo/$(echo '$arch')" | sudo tee --append /etc/pacman.conf > /dev/null
+  # sudo pacman -Syy
 }
 buildtheiso() {
   sudo rm -rf ./workingdir/airootfs/etc/systemd/system/getty*
@@ -134,9 +139,9 @@ buildtheiso() {
 }
 cleanup() {
   echo "Cleaning up..."
-  cat ./pacman.backup | sudo tee /etc/pacman.conf > /dev/null
-  sudo pacman -Syy
-  rm ./pacman.backup
+  # cat ./pacman.backup | sudo tee /etc/pacman.conf > /dev/null
+  # sudo pacman -Syy
+  # rm ./pacman.backup
   sudo rm -rf /var/cache/pacman/pkg/archmaker-calamares*
   sudo rm -rf /var/cache/pacman/pkg/qt5-styleplugins-git*
   finalfiles=""
@@ -145,17 +150,17 @@ cleanup() {
   done < "aurpackages"
   echo "Deleting files $finalfiles..."
   sudo rm -rf $finalfiles
-  rm -rf ./customrepo
+  # sudo rm -rf ./customrepo
   echo "Saving iso file..."
   cp ./workingdir/out/*.iso ./output.iso
   echo "Removing archiso directory..."
-  sudo rm -rf workingdir
+  # sudo rm -rf workingdir
 }
 createdir
 copypackages
 copyskel
 createlsbrelease
-compilecalamares
+# compilecalamares
 compileaurpkgs
 setuprepo
 buildtheiso
