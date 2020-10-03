@@ -26,8 +26,10 @@ copypackages() {
 copyskel() {
   sudo mkdir ./workingdir/airootfs/etc/skel
   sudo cp -r ./skeldata/* ./workingdir/airootfs/etc/skel/
-  sudo ln -s /usr/lib/systemd/system/lightdm.service ./workingdir/airootfs/etc/systemd/system/display-manager.service
-  sudo sed -i "s/multi-user.target/graphical.target/g" ./workingdir/airootfs/root/customize_airootfs.sh
+}
+copyairootfs() {
+  sudo mkdir ./workingdir/airootfs
+  sudo cp -r airootfs/* ./workingdir/airootfs/
 }
 createlsbrelease() {
   # echo "lsb-release" | sudo tee --append ./workingdir/packages.x86_64 > /dev/null
@@ -96,6 +98,7 @@ cleanup() {
   # sudo rm -rf workingdir
 }
 createdir
+copyairootfs
 copypackages
 copyskel
 createlsbrelease
