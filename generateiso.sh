@@ -63,7 +63,6 @@ compileaurpkgs() {
   done < "aurpackages"
   rm -rf customrepo/custompkgs
   unset repopath buildingpath
-  cat aurpackages | sudo tee -a workingdir/packages.x86_64
 }
 setuprepo() {
   cd customrepo/x86_64
@@ -97,12 +96,16 @@ cleanup() {
   echo "Removing archiso directory..."
   # sudo rm -rf workingdir
 }
+appendaurpkgs() {
+  cat aurpackages | sudo tee -a workingdir/packages.x86_64
+}
 createdir
 copyairootfs
 copypackages
 copyskel
 createlsbrelease
-compileaurpkgs
+# compileaurpkgs
+appendaurpkgs
 setuprepo
 buildtheiso
 cleanup
