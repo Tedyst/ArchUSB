@@ -92,7 +92,7 @@ cleanup() {
   sudo rm -rf $finalfiles
   # sudo rm -rf ./customrepo
   echo "Saving iso file..."
-  cp ./workingdir/out/*.iso ./output.iso
+  sudo cp -f ./workingdir/out/*.iso ./output.iso
   echo "Removing archiso directory..."
   # sudo rm -rf workingdir
 }
