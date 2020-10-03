@@ -27,6 +27,8 @@ systemctl set-default graphical.target
 useradd -p cojkMmMifD5s6 tedy
 chown tedy -R /home/tedy/
 
+sudo -u tedy /home/tedy/autostart.sh
+
 # # Installing vscode extensions
 # sudo -u tedy code --install-extension aaron-bond.better-comments
 # sudo -u tedy code --install-extension chiehyu.vscode-astyle
