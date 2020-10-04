@@ -4,6 +4,12 @@ LaunchCounts=1 services_applications:kcm_icons.desktop,1 services_applications:k
 [PlasmaTransientsConfig]
 PreloadWeight=34
 
+[PlasmaViews][Panel 2][Defaults]
+thickness=44
+
+[PlasmaViews][Panel 2][Horizontal1024]
+thickness=44
+
 [ScreenConnectors]
 0=Virtual-1
 
