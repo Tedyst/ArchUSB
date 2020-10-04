@@ -95,6 +95,7 @@ DialogWidth=720
 ToolBoxButtonState=topcenter
 ToolBoxButtonX=305
 arrangement=1
+iconSize=3
 
 [Containments][23][Wallpaper][org.kde.image][General]
 Image=/home/tedy/bg.png
