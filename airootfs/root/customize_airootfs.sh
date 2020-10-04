@@ -32,25 +32,3 @@ chown tedy -R /home/tedy/
 sudo -u tedy sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 sudo -u tedy git clone https://github.com/Tedyst/zsh.git --recurse-submodules
 sudo -u tedy /home/tedy/zsh/install.sh
-
-# sudo -u tedy /home/tedy/autostart.sh
-
-# # Installing vscode extensions
-# sudo -u tedy code --install-extension aaron-bond.better-comments
-# sudo -u tedy code --install-extension chiehyu.vscode-astyle
-# sudo -u tedy code --install-extension coenraads.bracket-pair-colorizer
-# sudo -u tedy code --install-extension pkief.material-icon-theme
-# sudo -u tedy code --install-extension zhuangtongfa.material-theme
-# sudo -u tedy code --install-extension alefragnani.project-manager
-# sudo -u tedy code --install-extension ms-vscode.atom-keybindings
-# sudo -u tedy code --install-extension oderwat.indent-rainbow
-
-# LATEST_CPP=$(curl --silent "https://api.github.com/repos/Microsoft/vscode-cpptools/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
-# CPP_LINK="https://github.com/microsoft/vscode-cpptools/releases/download/$LATEST_CPP/cpptools-linux.vsix"
-# wget -O /home/tedy/cpptools-linux.vsix $CPP_LINK
-# sudo -u tedy code --install-extension /home/tedy/cpptools-linux.vsix
-# rm -f /home/tedy/cpptools-linux.vsix
-
-# Set default browser is bugged right now, crashes w/ Segfault
-# sudo -u tedy firefox-esr --silent --headless --setDefaultBrowser
-
