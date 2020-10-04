@@ -97,13 +97,13 @@ zsh
 jq
 
 sddm
-xfce4
-xfce4-goodies
+
 firefox
 chromium
 vlc
 ark
-adapta-gtk-theme
 youtube-dl
 networkmanager
 htop
+plasma-meta
+discord

@@ -1,0 +1,12 @@
+[$Version]
+update_info=kscreenlocker.upd:0.1-autolock
+
+[Daemon]
+Autolock=false
+LockOnResume=false
+
+[Greeter]
+Theme=com.github.varlesh.adapta
+
+[Greeter][Wallpaper][org.kde.image][General]
+Image=/home/tedy/bg.png
