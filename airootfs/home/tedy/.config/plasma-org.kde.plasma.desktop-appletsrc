@@ -91,7 +91,7 @@ wallpaperplugin=org.kde.image
 DialogHeight=540
 DialogWidth=720
 
-[Containments][21][Wallpaper][org.kde.image][General]
+[Containments][23][Wallpaper][org.kde.image][General]
 Image=/home/tedy/bg.png
 
 [Containments][7]
