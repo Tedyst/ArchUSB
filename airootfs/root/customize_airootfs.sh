@@ -21,6 +21,7 @@ sed -i 's/#\(HandleLidSwitch=\)suspend/\1poweroff/' /etc/systemd/logind.conf
 sed -i 's/#\(HandlePowerKey=\)poweroff/\1poweroff/' /etc/systemd/logind.conf
 
 systemctl enable sddm.service
+systemctl enable NetworkManager.service
 systemctl set-default graphical.target
 
 # Password is "password"
