@@ -50,3 +50,6 @@ powerDownAction=16
 [LowBattery][SuspendSession]
 idleTime=300000
 suspendType=1
+
+[migration]
+kdedShortcutMigration=true

@@ -1,8 +1,8 @@
 [PlasmaRunnerManager]
-LaunchCounts=1 services_applications:kcm_lookandfeel.desktop,1 services_applications:kcm_icons.desktop
+LaunchCounts=1 services_applications:kcm_icons.desktop,1 services_applications:kcm_workspace.desktop,1 services_applications:kcm_lookandfeel.desktop,2 services_applications:org.kde.konsole.desktop,1 services_applications:org.kde.yakuake.desktop
 
 [PlasmaTransientsConfig]
-PreloadWeight=42
+PreloadWeight=34
 
 [ScreenConnectors]
 0=Virtual-1
