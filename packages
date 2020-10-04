@@ -108,3 +108,8 @@ htop
 plasma-meta
 discord
 kde-applications
+libdbusmenu-glib
+git
+astyle
+cppcheck
+bash-completion
