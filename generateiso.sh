@@ -23,10 +23,6 @@ createdir() {
 copypackages() {
   sudo cp ./packages ./workingdir/packages.x86_64
 }
-copyskel() {
-  sudo mkdir ./workingdir/airootfs/etc/skel
-  sudo cp -r ./skeldata/* ./workingdir/airootfs/etc/skel/
-}
 copyairootfs() {
   sudo mkdir ./workingdir/airootfs
   sudo cp -r airootfs/* ./workingdir/airootfs/
@@ -97,14 +93,14 @@ cleanup() {
   # sudo rm -rf workingdir
 }
 appendaurpkgs() {
+  printf $'\n' | sudo tee -a workingdir/packages.x86_64
   cat aurpackages | sudo tee -a workingdir/packages.x86_64
 }
 createdir
 copyairootfs
 copypackages
-copyskel
 createlsbrelease
-# compileaurpkgs
+compileaurpkgs
 appendaurpkgs
 setuprepo
 buildtheiso
