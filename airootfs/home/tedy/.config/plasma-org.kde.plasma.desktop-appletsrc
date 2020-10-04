@@ -6,27 +6,6 @@ wheel:Vertical;NoModifier=org.kde.switchdesktop
 [ActionPlugins][1]
 RightButton;NoModifier=org.kde.contextmenu
 
-[Containments][1]
-ItemGeometriesHorizontal=
-activityId=54911bd4-8917-47e4-aa30-2d7f2468585b
-formfactor=0
-immutability=1
-lastScreen=0
-location=0
-plugin=org.kde.plasma.folder
-wallpaperplugin=org.kde.image
-
-[Containments][1][ConfigDialog]
-DialogHeight=540
-DialogWidth=720
-
-[Containments][1][General]
-positions=2,17,desktop:/spotify-adblock.desktop,0,0,desktop:/caprine.desktop,1,0
-sortMode=-1
-
-[Containments][1][Wallpaper][org.kde.image][General]
-Image=file:///home/tedy/Firewatch Mod Night.png
-
 [Containments][2]
 activityId=
 formfactor=2
@@ -56,9 +35,9 @@ DialogHeight=540
 DialogWidth=720
 
 [Containments][2][Applets][18][Configuration][General]
-groupingAppIdBlacklist=,visual-studio-code-insiders.desktop
+groupingAppIdBlacklist=visual-studio-code-insiders.desktop,
 groupingLauncherUrlBlacklist=applications:visual-studio-code-insiders.desktop,file:///usr/lib/jvm/java-8-jdk/bin/java
-launchers=applications:firefox.desktop,applications:visual-studio-code-insiders.desktop,applications:org.kde.konsole.desktop,applications:discord.desktop
+launchers=applications:firefox.desktop,applications:discord.desktop
 
 [Containments][2][Applets][20]
 immutability=1
@@ -97,7 +76,23 @@ DialogHeight=84
 DialogWidth=1920
 
 [Containments][2][General]
-AppletOrder=3;4;18;20;6;15;16
+AppletOrder=3;4;18;6;15;16
+
+[Containments][21]
+activityId=1ecc3040-8ca8-47cc-a3bd-53a502564c21
+formfactor=0
+immutability=1
+lastScreen=0
+location=0
+plugin=org.kde.plasma.folder
+wallpaperplugin=org.kde.image
+
+[Containments][21][ConfigDialog]
+DialogHeight=540
+DialogWidth=720
+
+[Containments][21][Wallpaper][org.kde.image][General]
+Image=/home/tedy/bg.png
 
 [Containments][7]
 activityId=
@@ -161,6 +156,10 @@ plugin=org.kde.kdeconnect
 [Containments][7][Applets][21][Configuration]
 PreloadWeight=65
 
+[Containments][7][Applets][22]
+immutability=1
+plugin=org.kde.plasma.networkmanagement
+
 [Containments][7][Applets][8]
 immutability=1
 plugin=org.kde.plasma.volume
@@ -189,4 +188,4 @@ shownItems=org.kde.plasma.networkmanagement
 
 [ScreenMapping]
 itemsOnDisabledScreens=
-screenMapping=desktop:/caprine.desktop,0,desktop:/spotify-adblock.desktop,0,desktop:/Friends.S09E01.1080p.BluRay.x264-TENEIGHTY-2.mkv,0,file:///home/tedy/Desktop/Link to Application.desktop,0
+screenMapping=desktop:/spotify-adblock.desktop,0,file:///home/tedy/Desktop/Link to Application.desktop,0,desktop:/caprine.desktop,0,desktop:/Friends.S09E01.1080p.BluRay.x264-TENEIGHTY-2.mkv,0

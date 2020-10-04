@@ -1,0 +1,11 @@
+[PlasmaRunnerManager]
+LaunchCounts=1 services_applications:kcm_lookandfeel.desktop,1 services_applications:kcm_icons.desktop
+
+[PlasmaTransientsConfig]
+PreloadWeight=42
+
+[ScreenConnectors]
+0=Virtual-1
+
+[Updates]
+performed=/usr/share/plasma/shells/org.kde.plasma.desktop/contents/updates/move_desktop_layout_config.js,/usr/share/plasma/shells/org.kde.plasma.desktop/contents/updates/obsolete_kickoffrc.js,/usr/share/plasma/shells/org.kde.plasma.desktop/contents/updates/unlock_widgets.js

@@ -46,18 +46,12 @@ compileaurpkgs() {
     curl https://aur.archlinux.org/cgit/aur.git/snapshot/$currentpkg.tar.gz > ./currentpkg.tar.gz
     tar xf currentpkg.tar.gz
     rm currentpkg.tar.gz
-    for d in */ ; do
-      cd "$d"
-    done
+    cd $currentpkg
     makepkg -s
     cp *.pkg.ta* ../../x86_64
-    cd $buildingpath
-    for d in */ ; do
-      rm -rf "$d"
-    done
     cd $repopath
   done < "aurpackages"
-  rm -rf customrepo/custompkgs
+  # rm -rf customrepo/custompkgs
   unset repopath buildingpath
 }
 setuprepo() {
