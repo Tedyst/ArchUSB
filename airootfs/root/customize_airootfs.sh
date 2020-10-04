@@ -20,30 +20,15 @@ sed -i 's/#\(HandleHibernateKey=\)hibernate/\1poweroff/' /etc/systemd/logind.con
 sed -i 's/#\(HandleLidSwitch=\)suspend/\1poweroff/' /etc/systemd/logind.conf
 sed -i 's/#\(HandlePowerKey=\)poweroff/\1poweroff/' /etc/systemd/logind.conf
 
-systemctl enable pacman-init.service choose-mirror.service wicd.service
+systemctl enable sddm.service
+systemctl enable NetworkManager.service
 systemctl set-default graphical.target
-systemctl disable Network-wait-online.service
 
 # Password is "password"
 useradd -p cojkMmMifD5s6 tedy
 chown tedy -R /home/tedy/
 
-# Installing vscode extensions
-sudo -u tedy code --install-extension aaron-bond.better-comments
-sudo -u tedy code --install-extension chiehyu.vscode-astyle
-sudo -u tedy code --install-extension coenraads.bracket-pair-colorizer
-sudo -u tedy code --install-extension pkief.material-icon-theme
-sudo -u tedy code --install-extension zhuangtongfa.material-theme
-sudo -u tedy code --install-extension alefragnani.project-manager
-sudo -u tedy code --install-extension ms-vscode.atom-keybindings
-sudo -u tedy code --install-extension oderwat.indent-rainbow
-
-LATEST_CPP=$(curl --silent "https://api.github.com/repos/Microsoft/vscode-cpptools/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
-CPP_LINK="https://github.com/microsoft/vscode-cpptools/releases/download/$LATEST_CPP/cpptools-linux.vsix"
-wget -O /home/tedy/cpptools-linux.vsix $CPP_LINK
-sudo -u tedy code --install-extension /home/tedy/cpptools-linux.vsix
-rm -f /home/tedy/cpptools-linux.vsix
-
-# Set default browser is bugged right now, crashes w/ Segfault
-# sudo -u tedy firefox-esr --silent --headless --setDefaultBrowser
-
+# Install oh-my-zsh
+sudo -u tedy sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+sudo -u tedy git clone https://github.com/Tedyst/zsh.git --recurse-submodules
+sudo -u tedy /home/tedy/zsh/install.sh

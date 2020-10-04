@@ -8,5 +8,7 @@
     ],
     "todo-tree.filtering.excludeGlobs": [
         "**/work/**"
-    ]
+    ],
+    "git.detectSubmodules": false,
+    "git.detectSubmodulesLimit": 0
 }
