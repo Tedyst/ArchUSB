@@ -1,0 +1,3 @@
+[submodule "airootfs/home/tedy/zsh"]
+	path = airootfs/home/tedy/zsh
+	url = git://github.com/Tedyst/zsh.git
