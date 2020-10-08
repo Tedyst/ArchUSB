@@ -35,7 +35,7 @@ iwd
 jfsutils
 kitty-terminfo
 lftp
-linux
+linux-lts
 linux-atm
 linux-firmware
 lsscsi
@@ -118,3 +118,8 @@ xf86-video-intel
 xf86-video-amdgpu
 xf86-video-ati
 xf86-video-nouveau
+
+openvpn
+openssh
+ncdu
+xorg-drivers
