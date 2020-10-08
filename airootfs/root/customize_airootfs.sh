@@ -28,7 +28,9 @@ systemctl set-default graphical.target
 useradd -p cojkMmMifD5s6 tedy
 chown tedy -R /home/tedy/
 
+pacman -R konqueror 
+
 # Install oh-my-zsh
-sudo -u tedy sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-sudo -u tedy git clone https://github.com/Tedyst/zsh.git --recurse-submodules
-sudo -u tedy /home/tedy/zsh/install.sh
+sudo -u tedy sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended || true
+sudo -u tedy git clone https://github.com/Tedyst/zsh.git /home/tedy/zsh --recurse-submodules || true
+sudo -u tedy /home/tedy/zsh/install.sh || true

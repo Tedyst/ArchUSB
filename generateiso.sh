@@ -97,5 +97,5 @@ createlsbrelease
 compileaurpkgs
 appendaurpkgs
 setuprepo
-buildtheiso
-cleanup
+# buildtheiso
+# cleanup
