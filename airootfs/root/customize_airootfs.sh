@@ -28,7 +28,7 @@ systemctl set-default graphical.target
 useradd -p cojkMmMifD5s6 tedy
 chown tedy -R /home/tedy/
 
-pacman -R --noconfirm konqueror 
+pacman -R --noconfirm konqueror || true
 
 # Install oh-my-zsh
 sudo -u tedy sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended || true
