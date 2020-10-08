@@ -90,6 +90,9 @@ appendaurpkgs() {
   printf $'\n' | sudo tee -a workingdir/packages.x86_64
   cat aurpackages | sudo tee -a workingdir/packages.x86_64
 }
+setupsyslinux() {
+  sed -i 's/APPEND archisobasedir=%INSTALL_DIR% archisolabel=%ARCHISO_LABEL%/APPEND archisobasedir=%INSTALL_DIR% archisolabel=%ARCHISO_LABEL% cow_spacesize=1G/g' workingdir/syslinux/syslinux-linux.cfg
+}
 createdir
 copyairootfs
 copypackages
@@ -97,5 +100,6 @@ createlsbrelease
 compileaurpkgs
 appendaurpkgs
 setuprepo
-# buildtheiso
-# cleanup
+setupsyslinux
+buildtheiso
+cleanup
